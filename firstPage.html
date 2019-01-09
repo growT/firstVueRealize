@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试绑定页面</title>
+    <script src="./dep.js"></script>
+    <script src="./observer.js"></script>
+    <script src="./watcher.js"></script>
+    <script src="./compiler.js"></script>
+    <script src="./myVue.js"></script>
+</head>
+<body>
+    <div id="name">
+            {{name}}
+            <input type="text" v-model="name"/>
+            <button v-on:click="changeName">点击</button>
+    </div>
+    <script>
+       
+        let myVue =new MyVue({
+            el: '#name',
+            data: {
+                name: ''
+            },
+            methods: {
+               changeName: function() {
+                   this.name = '李四';
+               }
+            },
+            mounted() {
+                console.log('初始化');
+                this.name = '张三';
+            }
+        })
+    </script>
+</body>
+</html>
